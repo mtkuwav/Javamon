@@ -126,4 +126,37 @@ public class Pokemon {
     this.imageBack = imageBack;
   }
 
+  // methode pour attaquer
+
+  public void ajouterAttaque(Attaque attaque) {
+    if (attaques.size() < 4) {
+      attaques.add(attaque);
+    }
+  }
+
+  public void retirerAttaque(Attaque attaque) {
+    attaques.remove(attaque);
+  }
+
+  // methode pour savoir si le pokemon est de type
+  public boolean estDeType(Type type) {
+    return types.contains(type);
+  }
+
+  // methode pour les combats
+  public void subirDegats(int degats) {
+    int nouveauHp = Math.max(0, hp.get() - degats);
+    hp.set(nouveauHp);
+  }
+
+  public void soigner(int montant) {
+    int nouveauHp = Math.min(hpMax, hp.get() + montant);
+  }
+
+  public boolean estKo() {
+    return hp.get() <= 0;
+  }
+  
+
+
 }
