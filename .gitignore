@@ -6,6 +6,9 @@ target/
 # Log files
 *.log
 
+# Vscode files
+.vscode/*
+
 # BlueJ files
 *.ctxt
 

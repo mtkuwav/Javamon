@@ -1,0 +1,21 @@
+==== CONFIGS ====		
+{
+    "base_path": "/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon",
+    "out": "/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/javadoc",
+    "javadoc_executable": "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/javadoc",
+    "exclude": [],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/javadoc" 
+	-sourcepath "/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon" 
+	-d "/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/javadoc" 
+	"/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/.git/logs/refs/heads/modele-pokemon.java"
+	"/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/.git/logs/refs/remotes/origin/modele-pokemon.java"
+	"/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/.git/refs/heads/modele-pokemon.java"
+	"/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/.git/refs/remotes/origin/modele-pokemon.java"
+	"/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/src/main/java/javamon/main/Main.java"
+	"/Users/hugoolbg/Documents/Codage/java/pokemon/Javamon/src/main/java/javamon/modele/Pokemon.java"
+
+
