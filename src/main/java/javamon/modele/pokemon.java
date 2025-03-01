@@ -43,6 +43,6 @@ public class pokemon {
     this.defenseSpecial = defenseSpecial;
     this.vitesse = vitesse;
     this.types = new ArrayList<>(types);
-    this.attaaques = new ArrayList<>();
+    this.attaques = new ArrayList<>();
   }
 }
