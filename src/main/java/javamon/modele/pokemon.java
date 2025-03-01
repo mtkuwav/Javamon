@@ -47,6 +47,7 @@ public class Pokemon {
     this.attaques = new ArrayList<>();
   }
 
+  // Determination des getters et setters
   public String getNom() {
     return nom;
   }
@@ -156,7 +157,103 @@ public class Pokemon {
   public boolean estKo() {
     return hp.get() <= 0;
   }
-  
 
+  // methode pour status
+  public boolean peutAttaquer() {
+    if (statut != null) {
+      return statut.peutAttaquer();
+    }
+    return true;
+  }
 
+  // methode pour les modifications de stats
+  public void modifierAttaque(int niveaux) {
+    facteurAttaque = getFacteurSelonNiveau(facteurAttaque, niveaux);
+  }
+
+  public void modifierDefense(int niveaux) {
+    facteurDefense = getFacteurSelonNiveau(facteurDefense, niveaux);
+  }
+
+  public void modifierAttaqueSpeciale(int niveaux) {
+    facteurAttaqueSpecial = getFacteurSelonNiveau(facteurAttaqueSpecial, niveaux);
+  }
+
+  public void modifierDefenseSpeciale(int niveaux) {
+
+  }
+
+  public void modifierVitesse(int niveaux) {
+    facteurVitesse = getFacteurSelonNiveau(facteurVitesse, niveaux);
+  }
+
+  // methode pour les facteurs de stats
+  private double getFacteurSelonNiveau(double facteurActuel, int niveaux) {
+    if (niveaux > 0) {
+      // Augmentation de niveau (max +6)
+      for (int i = 0; i < niveaux && i < 6; i++) {
+        switch (i) {
+          case 0:
+            facteurActuel = 1.5;
+            break;
+          case 1:
+            facteurActuel = 2.0;
+            break;
+          case 2:
+            facteurActuel = 2.5;
+            break;
+          case 3:
+            facteurActuel = 3.0;
+            break;
+          case 4:
+            facteurActuel = 3.5;
+            break;
+          case 5:
+            facteurActuel = 4.0;
+            break;
+        }
+      }
+    } else if (niveaux < 0) {
+      for (int i = 0; i > niveaux && i > -6; i--) {
+        switch (i) {
+          case -1:
+            facteurActuel = 0.67;
+            break;
+          case -2:
+            facteurActuel = 0.5;
+            break;
+          case -3:
+            facteurActuel = 0.4;
+            break;
+          case -4:
+            facteurActuel = 0.33;
+            break;
+          case -5:
+            facteurActuel = 0.29;
+            break;
+          case -6:
+            facteurActuel = 0.25;
+            break;
+        }
+      }
+    }
+    return facteurActuel;
+  }
+
+  // methode pour les effets fin de tour
+  public void appliquerEffetsFinTour() {
+    if (statut != null) {
+      statut.appliquerEffetFin(this);
+    }
+
+    if (objetTenu != null) {
+      objetTenu.finTour(this);
+    }
+  }
+
+  // methode pour les toString
+  @Override
+  public String toString() {
+    return nom;
+  }
 }
