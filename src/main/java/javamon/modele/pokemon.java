@@ -2,6 +2,7 @@ package javamon.modele;
 
 import java.util.ArrayList;
 import java.util.List;
+import javamon.modele.Type;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
