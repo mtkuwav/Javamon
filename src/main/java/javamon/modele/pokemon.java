@@ -33,14 +33,15 @@ public class pokemon {
   private double facteurVitesse = 1.0;
 
   // constructeur avec les propriétés du pokemon
-  public pokemon(String nom, int hpMax, int attaque, int defense, int attaqueSpecial, int defenseSpecial, int vitesse, List<Type> types, List<Attaque> attaques, ObjetTenu objetTenu, Status status, String imageFont, String imageBack) {
+  public pokemon(String nom, int hpMax, int attaque, int defense, int attaqueSpeciale, 
+  int defenseSpeciale, int vitesse, List<Type> types) {
     this.nom = nom;
     this.hpMax = hpMax;
     this.hp.set(hpMax);
     this.attaque = attaque;
     this.defense = defense;
-    this.attaqueSpecial = attaqueSpecial;
-    this.defenseSpecial = defenseSpecial;
+    this.attaqueSpecial = attaqueSpeciale;
+    this.defenseSpecial = defenseSpeciale;
     this.vitesse = vitesse;
     this.types = new ArrayList<>(types);
     this.attaques = new ArrayList<>();
