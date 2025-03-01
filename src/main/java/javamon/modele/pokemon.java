@@ -2,7 +2,6 @@ package javamon.modele;
 
 import java.util.ArrayList;
 import java.util.List;
-import javamon.modele.Type;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -21,9 +20,9 @@ public class Pokemon {
   private List<Type> types;
   private List<Attaque> attaques;
   private ObjetTenu objetTenu;
-  private statut statut;
+  private Statut statut;
   // image du pokemon arriere plan et font pour javafx
-  private String imageFont;
+  private String imageFront;
   private String imageBack;
 
   // facteur de dégats pour les attaques et heal
