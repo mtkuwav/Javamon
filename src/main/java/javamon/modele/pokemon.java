@@ -1,11 +1,11 @@
 package javamon.modele;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class pokemon {
+public class Pokemon {
   // integer pour rafraichir la valeur de hp dans javafx
   private IntegerProperty hp = new SimpleIntegerProperty();
   // propriétés du pokemon
@@ -25,7 +25,7 @@ public class pokemon {
   private String imageFont;
   private String imageBack;
 
-  // facteur de dégats pour les attaques et heal 
+  // facteur de dégats pour les attaques et heal
   private double facteurAttaque = 1.0;
   private double facteurDefense = 1.0;
   private double facteurAttaqueSpecial = 1.0;
@@ -33,8 +33,7 @@ public class pokemon {
   private double facteurVitesse = 1.0;
 
   // constructeur avec les propriétés du pokemon
-  public pokemon(String nom, int hpMax, int attaque, int defense, int attaqueSpeciale, 
-  int defenseSpeciale, int vitesse, List<Type> types) {
+  public Pokemon(String nom, int hpMax, int attaque, int defense, int attaqueSpeciale, int defenseSpeciale, int vitesse, List<Type> types) {
     this.nom = nom;
     this.hpMax = hpMax;
     this.hp.set(hpMax);
@@ -45,5 +44,5 @@ public class pokemon {
     this.vitesse = vitesse;
     this.types = new ArrayList<>(types);
     this.attaques = new ArrayList<>();
-  }
+    }
 }
