@@ -1,4 +1,4 @@
-package javamon.modele;
+package javamon.model;
 
 import java.util.HashMap;
 import java.util.Map;

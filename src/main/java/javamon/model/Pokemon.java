@@ -1,4 +1,4 @@
-package javamon.modele;
+package javamon.model;
 
 import java.util.ArrayList;
 import java.util.List;
