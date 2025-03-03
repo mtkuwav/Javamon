@@ -7,20 +7,20 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class PokemonModel {
   // integer to refresh the hp value in javafx
-  private IntegerProperty hp = new SimpleIntegerProperty();
-  // pokemon properties
-  private String name;
-  private int maxHP;
-  private int attack;
-  private int defense;
-  private int specialAttack;
-  private int specialDefense;
-  private int speed;
+  private final IntegerProperty hp = new SimpleIntegerProperty();
+  // pokemfinal on properties
+  private final String name;
+  private final int maxHP;
+  private final int attack;
+  private final int defense;
+  private final int specialAttack;
+  private final int specialDefense;
+  private final int speed;
   // list of types for selection option
-  private List<TypeModel> types;
-  private List<Attack> attacks;
-  private HeldObject heldObject;
-  private Status status;
+  private final List<TypeModel> types;
+  private final List<Attack> attacks;
+  private final HeldObject heldObject;
+  private final Status status;
   // pokemon image background and font for javafx
   private String frontImage;
   private String backImage;
