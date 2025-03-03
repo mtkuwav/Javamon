@@ -4,37 +4,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Type {
-    private String nom;
-    private Map<Type, Double> efficacite;
+    private String name;
+    private Map<Type, Double> effectiveness;
 
-    public Type(String nom) {
-        this.nom = nom;
-        this.efficacite = new HashMap<>();
+    public Type(String name) {
+        this.name = name;
+        this.effectiveness = new HashMap<>();
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void ajouterEfficacite(Type type, double multiplicateur) {
-        efficacite.put(type, multiplicateur);
+    public void addEffectiveness(Type type, double multiplier) {
+        effectiveness.put(type, multiplier);
     }
 
-    public double getMultiplicateurContre(Type type) {
-        return efficacite.getOrDefault(type, 1.0);
+    public double getMultiplierAgainst(Type type) {
+        return effectiveness.getOrDefault(type, 1.0);
     }
 
-    public double getMultiplicateurContre(Iterable<Type> types) {
-        double multiplicateur = 1.0;
+    public double getMultiplierAgainst(Iterable<Type> types) {
+        double multiplier = 1.0;
         for (Type type : types) {
-            multiplicateur *= getMultiplicateurContre(type);
+            multiplier *= getMultiplierAgainst(type);
         }
-        return multiplicateur;
+        return multiplier;
     }
 
     @Override
     public String toString() {
-        return nom;
+        return name;
     }
 
     @Override
@@ -43,11 +43,11 @@ public class Type {
             return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
-        return nom.equals(((Type) obj).nom);
+        return name.equals(((Type) obj).name);
     }
 
     @Override
     public int hashCode() {
-        return nom.hashCode();
+        return name.hashCode();
     }
 }
