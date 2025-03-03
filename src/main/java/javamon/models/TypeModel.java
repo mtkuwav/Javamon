@@ -3,11 +3,11 @@ package javamon.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Type {
+public class TypeModel {
     private String name;
-    private Map<Type, Double> effectiveness;
+    private Map<TypeModel, Double> effectiveness;
 
-    public Type(String name) {
+    public TypeModel(String name) {
         this.name = name;
         this.effectiveness = new HashMap<>();
     }
@@ -16,17 +16,17 @@ public class Type {
         return name;
     }
 
-    public void addEffectiveness(Type type, double multiplier) {
+    public void addEffectiveness(TypeModel type, double multiplier) {
         effectiveness.put(type, multiplier);
     }
 
-    public double getMultiplierAgainst(Type type) {
+    public double getMultiplierAgainst(TypeModel type) {
         return effectiveness.getOrDefault(type, 1.0);
     }
 
-    public double getMultiplierAgainst(Iterable<Type> types) {
+    public double getMultiplierAgainst(Iterable<TypeModel> types) {
         double multiplier = 1.0;
-        for (Type type : types) {
+        for (TypeModel type : types) {
             multiplier *= getMultiplierAgainst(type);
         }
         return multiplier;
@@ -43,7 +43,7 @@ public class Type {
             return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
-        return name.equals(((Type) obj).name);
+        return name.equals(((TypeModel) obj).name);
     }
 
     @Override

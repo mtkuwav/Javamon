@@ -5,7 +5,7 @@ import java.util.List;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class Pokemon {
+public class PokemonModel {
   // integer to refresh the hp value in javafx
   private IntegerProperty hp = new SimpleIntegerProperty();
   // pokemon properties
@@ -17,7 +17,7 @@ public class Pokemon {
   private int specialDefense;
   private int speed;
   // list of types for selection option
-  private List<Type> types;
+  private List<TypeModel> types;
   private List<Attack> attacks;
   private HeldObject heldObject;
   private Status status;
@@ -33,8 +33,8 @@ public class Pokemon {
   private double speedFactor = 1.0;
 
   // constructor with pokemon properties
-  public Pokemon(String name, int maxHP, int attack, int defense, int specialAttack, int specialDefense, int speed,
-      List<Type> types) {
+  public PokemonModel(String name, int maxHP, int attack, int defense, int specialAttack, int specialDefense, int speed,
+      List<TypeModel> types) {
     this.name = name;
     this.maxHP = maxHP;
     this.hp.set(maxHP);
@@ -84,7 +84,7 @@ public class Pokemon {
     return (int) (speed * speedFactor);
   }
 
-  public List<Type> getTypes() {
+  public List<TypeModel> getTypes() {
     return new ArrayList<>(types);
   }
 
@@ -139,7 +139,7 @@ public class Pokemon {
   }
 
   // method to check if pokemon is of type
-  public boolean isOfType(Type type) {
+  public boolean isOfType(TypeModel type) {
     return types.contains(type);
   }
 
