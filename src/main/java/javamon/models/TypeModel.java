@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TypeModel {
-    private String name;
-    private Map<TypeModel, Double> effectiveness;
+    private final String name;
+    private final Map<TypeModel, Double> effectiveness;
 
     public TypeModel(String name) {
         this.name = name;
