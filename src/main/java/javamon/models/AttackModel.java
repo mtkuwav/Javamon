@@ -24,7 +24,7 @@ public abstract class AttackModel {
   private final String name;
   private final TypeModel type;
   private final int power;
-  private final List<SecondaryEffectModel> secondaryEffects;
+  private final ArrayList<SecondaryEffectModel> secondaryEffects;
 
   /**
    * Creates a new AttackModel with the specified properties
@@ -38,7 +38,7 @@ public abstract class AttackModel {
   public AttackModel( String name,
                       TypeModel type,
                       int power,
-                      List<SecondaryEffectModel> secondaryEffects) {
+                      ArrayList<SecondaryEffectModel> secondaryEffects) {
 
     this.name = name;
     this.type = type;
