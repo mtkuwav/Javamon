@@ -2,8 +2,11 @@ package javamon.models;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+
+// SOME LINES ARE COMMENTED FOR TESTING AND AVOIDING COMPILAITON ERRORS
 
 public class PokemonModel {
   // integer to refresh the hp value in javafx
@@ -18,9 +21,9 @@ public class PokemonModel {
   private final int speed;
   // list of types for selection option
   private final List<TypeModel> types;
-  private final List<Attack> attacks;
-  private final HeldObject heldObject;
-  private final Status status;
+  // private final List<AttackModel> attacks;
+  // private final HeldObject heldObject;
+  // private final Status status;
   // pokemon image background and font for javafx
   private String frontImage;
   private String backImage;
@@ -44,7 +47,7 @@ public class PokemonModel {
     this.specialDefense = specialDefense;
     this.speed = speed;
     this.types = new ArrayList<>(types);
-    this.attacks = new ArrayList<>();
+    // this.attacks = new ArrayList<>();
   }
 
   // Getters and setters
@@ -88,28 +91,28 @@ public class PokemonModel {
     return new ArrayList<>(types);
   }
 
-  public List<Attack> getAttacks() {
-    return new ArrayList<>(attacks);
-  }
+  // public List<Attack> getAttacks() {
+  //   return new ArrayList<>(attacks);
+  // }
 
-  public HeldObject getHeldObject() {
-    return heldObject;
-  }
+  // public HeldObject getHeldObject() {
+  //   return heldObject;
+  // }
 
-  public void setHeldObject(HeldObject heldObject) {
-    this.heldObject = heldObject;
-  }
+  // public void setHeldObject(HeldObject heldObject) {
+  //   this.heldObject = heldObject;
+  // }
 
-  public Status getStatus() {
-    return status;
-  }
+  // public Status getStatus() {
+  //   return status;
+  // }
 
-  public void setStatus(Status status) {
-    this.status = status;
-    if (status != null) {
-      status.applyStartEffect(this);
-    }
-  }
+  // public void setStatus(Status status) {
+  //   this.status = status;
+  //   if (status != null) {
+  //     status.applyStartEffect(this);
+  //   }
+  // }
 
   public String getFrontImage() {
     return frontImage;
@@ -128,15 +131,15 @@ public class PokemonModel {
   }
 
   // method for attacking
-  public void addAttack(Attack attack) {
-    if (attacks.size() < 4) {
-      attacks.add(attack);
-    }
-  }
+  // public void addAttack(Attack attack) {
+  //   if (attacks.size() < 4) {
+  //     attacks.add(attack);
+  //   }
+  // }
 
-  public void removeAttack(Attack attack) {
-    attacks.remove(attack);
-  }
+  // public void removeAttack(Attack attack) {
+  //   attacks.remove(attack);
+  // }
 
   // method to check if pokemon is of type
   public boolean isOfType(TypeModel type) {
@@ -159,12 +162,12 @@ public class PokemonModel {
   }
 
   // method for status
-  public boolean canAttack() {
-    if (status != null) {
-      return status.canAttack();
-    }
-    return true;
-  }
+  // public boolean canAttack() {
+  //   if (status != null) {
+  //     return status.canAttack();
+  //   }
+  //   return true;
+  // }
 
   // methods for stat modifications
   public void modifyAttack(int levels) {
@@ -241,15 +244,15 @@ public class PokemonModel {
   }
 
   // method for end of turn effects
-  public void applyEndTurnEffects() {
-    if (status != null) {
-      status.applyEndEffect(this);
-    }
+  // public void applyEndTurnEffects() {
+  //   if (status != null) {
+  //     status.applyEndEffect(this);
+  //   }
 
-    if (heldObject != null) {
-      heldObject.endTurn(this);
-    }
-  }
+  //   if (heldObject != null) {
+  //     heldObject.endTurn(this);
+  //   }
+  // }
 
   // method for toString
   @Override
