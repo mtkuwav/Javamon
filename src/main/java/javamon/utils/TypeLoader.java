@@ -30,14 +30,12 @@ public class TypeLoader {
     Map<String, TypeModel> typeModels = new HashMap<>();
     
     try {
-      // Load the JSON file
       InputStream is = TypeLoader.class.getResourceAsStream("/data/types_data.json");
       if (is == null) {
         LOGGER.log(Level.SEVERE, "Could not find types_data.json file");
         return typeModels;
       }
 
-      // Parse the JSON
       JsonArray typesArray;
       try (JsonReader reader = Json.createReader(is)) {
         typesArray = reader.readArray();
@@ -53,10 +51,10 @@ public class TypeLoader {
         JsonObject typeObj = typeValue.asJsonObject();
         String typeName = typeObj.getString("name");
         TypeModel typeModel = typeModels.get(typeName);
-        
+
         if (typeObj.containsKey("effectiveness")) {
           JsonObject effectivenessObj = typeObj.getJsonObject("effectiveness");
-          
+
           for (String targetTypeName : effectivenessObj.keySet()) {
             double multiplier = effectivenessObj.getJsonNumber(targetTypeName).doubleValue();
             TypeModel targetType = typeModels.get(targetTypeName);
