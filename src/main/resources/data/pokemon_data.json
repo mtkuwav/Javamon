@@ -1,0 +1,643 @@
+[
+    {
+        "name": "bulbasaur",
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "special_attack": 65,
+        "special_defense": 65,
+        "speed": 45,
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "attacks": [
+            {
+                "name": "razor-wind",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": true,
+                "category": "special",
+                "secondaryEffects": [],
+                "description": "1st turn: Prepare\n2nd turn: Attack"
+            },
+            {
+                "name": "swords-dance",
+                "type": "normal",
+                "power": 0,
+                "isSpecial": false,
+                "category": "status",
+                "secondaryEffects": [],
+                "description": "A dance that in\u00ad\ncreases ATTACK."
+            },
+            {
+                "name": "cut",
+                "type": "normal",
+                "power": 50,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Cuts using claws,\nscythes, etc."
+            },
+            {
+                "name": "bind",
+                "type": "normal",
+                "power": 15,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "trap",
+                        "chance": 100
+                    }
+                ],
+                "description": "Binds the target\nfor 2-5 turns."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/bulbasaur.png",
+            "back": "images/pokemon/back/bulbasaur.png"
+        }
+    },
+    {
+        "name": "charmander",
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "special_attack": 60,
+        "special_defense": 50,
+        "speed": 65,
+        "types": [
+            "fire"
+        ],
+        "attacks": [
+            {
+                "name": "mega-punch",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful punch\nthrown very hard."
+            },
+            {
+                "name": "fire-punch",
+                "type": "fire",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "burn",
+                        "chance": 10
+                    }
+                ],
+                "description": "A fiery punch. May\ncause a burn."
+            },
+            {
+                "name": "thunder-punch",
+                "type": "electric",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "paralysis",
+                        "chance": 10
+                    }
+                ],
+                "description": "An electric punch.\nIt may paralyze."
+            },
+            {
+                "name": "scratch",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Scratches with\nsharp claws."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/charmander.png",
+            "back": "images/pokemon/back/charmander.png"
+        }
+    },
+    {
+        "name": "squirtle",
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "special_attack": 50,
+        "special_defense": 64,
+        "speed": 43,
+        "types": [
+            "water"
+        ],
+        "attacks": [
+            {
+                "name": "mega-punch",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful punch\nthrown very hard."
+            },
+            {
+                "name": "ice-punch",
+                "type": "ice",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "freeze",
+                        "chance": 10
+                    }
+                ],
+                "description": "An icy punch. May\ncause freezing."
+            },
+            {
+                "name": "mega-kick",
+                "type": "normal",
+                "power": 120,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful kicking\nattack."
+            },
+            {
+                "name": "headbutt",
+                "type": "normal",
+                "power": 70,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "An attack that may\nmake foe flinch."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/squirtle.png",
+            "back": "images/pokemon/back/squirtle.png"
+        }
+    },
+    {
+        "name": "pikachu",
+        "hp": 35,
+        "attack": 55,
+        "defense": 40,
+        "special_attack": 50,
+        "special_defense": 50,
+        "speed": 90,
+        "types": [
+            "electric"
+        ],
+        "attacks": [
+            {
+                "name": "mega-punch",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful punch\nthrown very hard."
+            },
+            {
+                "name": "pay-day",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Throws coins. Gets\nthem back later."
+            },
+            {
+                "name": "thunder-punch",
+                "type": "electric",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "paralysis",
+                        "chance": 10
+                    }
+                ],
+                "description": "An electric punch.\nIt may paralyze."
+            },
+            {
+                "name": "slam",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Slams the foe with\na tail, vine, etc."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/pikachu.png",
+            "back": "images/pokemon/back/pikachu.png"
+        }
+    },
+    {
+        "name": "jigglypuff",
+        "hp": 115,
+        "attack": 45,
+        "defense": 20,
+        "special_attack": 45,
+        "special_defense": 25,
+        "speed": 20,
+        "types": [
+            "normal",
+            "fairy"
+        ],
+        "attacks": [
+            {
+                "name": "pound",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Pounds with fore\u00ad\nlegs or tail."
+            },
+            {
+                "name": "double-slap",
+                "type": "normal",
+                "power": 15,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Repeatedly slaps\n2-5 times."
+            },
+            {
+                "name": "mega-punch",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful punch\nthrown very hard."
+            },
+            {
+                "name": "fire-punch",
+                "type": "fire",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "burn",
+                        "chance": 10
+                    }
+                ],
+                "description": "A fiery punch. May\ncause a burn."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/jigglypuff.png",
+            "back": "images/pokemon/back/jigglypuff.png"
+        }
+    },
+    {
+        "name": "meowth",
+        "hp": 40,
+        "attack": 45,
+        "defense": 35,
+        "special_attack": 40,
+        "special_defense": 40,
+        "speed": 90,
+        "types": [
+            "normal"
+        ],
+        "attacks": [
+            {
+                "name": "pay-day",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Throws coins. Gets\nthem back later."
+            },
+            {
+                "name": "scratch",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Scratches with\nsharp claws."
+            },
+            {
+                "name": "cut",
+                "type": "normal",
+                "power": 50,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Cuts using claws,\nscythes, etc."
+            },
+            {
+                "name": "headbutt",
+                "type": "normal",
+                "power": 70,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "An attack that may\nmake foe flinch."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/meowth.png",
+            "back": "images/pokemon/back/meowth.png"
+        }
+    },
+    {
+        "name": "machop",
+        "hp": 70,
+        "attack": 80,
+        "defense": 50,
+        "special_attack": 35,
+        "special_defense": 35,
+        "speed": 35,
+        "types": [
+            "fighting"
+        ],
+        "attacks": [
+            {
+                "name": "karate-chop",
+                "type": "fighting",
+                "power": 50,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Has a high criti\u00ad\ncal hit ratio."
+            },
+            {
+                "name": "mega-punch",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful punch\nthrown very hard."
+            },
+            {
+                "name": "fire-punch",
+                "type": "fire",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "burn",
+                        "chance": 10
+                    }
+                ],
+                "description": "A fiery punch. May\ncause a burn."
+            },
+            {
+                "name": "ice-punch",
+                "type": "ice",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "freeze",
+                        "chance": 10
+                    }
+                ],
+                "description": "An icy punch. May\ncause freezing."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/machop.png",
+            "back": "images/pokemon/back/machop.png"
+        }
+    },
+    {
+        "name": "gastly",
+        "hp": 30,
+        "attack": 35,
+        "defense": 30,
+        "special_attack": 100,
+        "special_defense": 35,
+        "speed": 80,
+        "types": [
+            "ghost",
+            "poison"
+        ],
+        "attacks": [
+            {
+                "name": "fire-punch",
+                "type": "fire",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "burn",
+                        "chance": 10
+                    }
+                ],
+                "description": "A fiery punch. May\ncause a burn."
+            },
+            {
+                "name": "ice-punch",
+                "type": "ice",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "freeze",
+                        "chance": 10
+                    }
+                ],
+                "description": "An icy punch. May\ncause freezing."
+            },
+            {
+                "name": "thunder-punch",
+                "type": "electric",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "paralysis",
+                        "chance": 10
+                    }
+                ],
+                "description": "An electric punch.\nIt may paralyze."
+            },
+            {
+                "name": "headbutt",
+                "type": "normal",
+                "power": 70,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "An attack that may\nmake foe flinch."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/gastly.png",
+            "back": "images/pokemon/back/gastly.png"
+        }
+    },
+    {
+        "name": "eevee",
+        "hp": 55,
+        "attack": 55,
+        "defense": 50,
+        "special_attack": 45,
+        "special_defense": 65,
+        "speed": 55,
+        "types": [
+            "normal"
+        ],
+        "attacks": [
+            {
+                "name": "pay-day",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Throws coins. Gets\nthem back later."
+            },
+            {
+                "name": "double-kick",
+                "type": "fighting",
+                "power": 30,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A double kicking\nattack."
+            },
+            {
+                "name": "sand-attack",
+                "type": "ground",
+                "power": 0,
+                "isSpecial": false,
+                "category": "status",
+                "secondaryEffects": [],
+                "description": "Reduces accuracy\nby throwing sand."
+            },
+            {
+                "name": "headbutt",
+                "type": "normal",
+                "power": 70,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "An attack that may\nmake foe flinch."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/eevee.png",
+            "back": "images/pokemon/back/eevee.png"
+        }
+    },
+    {
+        "name": "mewtwo",
+        "hp": 106,
+        "attack": 110,
+        "defense": 90,
+        "special_attack": 154,
+        "special_defense": 90,
+        "speed": 130,
+        "types": [
+            "psychic"
+        ],
+        "attacks": [
+            {
+                "name": "mega-punch",
+                "type": "normal",
+                "power": 80,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "A powerful punch\nthrown very hard."
+            },
+            {
+                "name": "pay-day",
+                "type": "normal",
+                "power": 40,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [],
+                "description": "Throws coins. Gets\nthem back later."
+            },
+            {
+                "name": "fire-punch",
+                "type": "fire",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "burn",
+                        "chance": 10
+                    }
+                ],
+                "description": "A fiery punch. May\ncause a burn."
+            },
+            {
+                "name": "ice-punch",
+                "type": "ice",
+                "power": 75,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "StatusEffect",
+                        "status": "freeze",
+                        "chance": 10
+                    }
+                ],
+                "description": "An icy punch. May\ncause freezing."
+            }
+        ],
+        "heldItem": null,
+        "status": null,
+        "images": {
+            "front": "images/pokemon/front/mewtwo.png",
+            "back": "images/pokemon/back/mewtwo.png"
+        }
+    }
+]
