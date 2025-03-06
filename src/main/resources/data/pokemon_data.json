@@ -29,21 +29,6 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "Cuts using claws,\nscythes, etc."
-            },
-            {
-                "name": "bind",
-                "type": "normal",
-                "power": 15,
-                "isSpecial": false,
-                "category": "physical",
-                "secondaryEffects": [
-                    {
-                        "type": "StatusEffect",
-                        "status": "trap",
-                        "chance": 100
-                    }
-                ],
-                "description": "Binds the target\nfor 2-5 turns."
             }
         ],
         "heldItem": null,
