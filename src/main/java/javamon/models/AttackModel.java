@@ -17,14 +17,14 @@ import java.util.List;
  * when an attack is used.
  * 
  * @see PokemonModel
- * @see SecondaryEffectModel
+ * @see ISecondaryEffect
  * @see TypeModel
  */
 public abstract class AttackModel {
   private final String name;
   private final TypeModel type;
   private final int power;
-  private final ArrayList<SecondaryEffectModel> secondaryEffects;
+  private final ArrayList<ISecondaryEffect> secondaryEffects;
 
   /**
    * Creates a new AttackModel with the specified properties
@@ -38,7 +38,7 @@ public abstract class AttackModel {
   public AttackModel( String name,
                       TypeModel type,
                       int power,
-                      ArrayList<SecondaryEffectModel> secondaryEffects) {
+                      ArrayList<ISecondaryEffect> secondaryEffects) {
 
     this.name = name;
     this.type = type;
@@ -76,8 +76,10 @@ public abstract class AttackModel {
    * @param target The Pokemon model that is receiving the attack and secondary effects
    */
   protected void applySecondaryEffects(PokemonModel attacker, PokemonModel target) {
-    for (SecondaryEffectModel effect : secondaryEffects) {
-      effect.apply(attacker, target);
+    for (ISecondaryEffect effect : secondaryEffects) {
+      if (effect.triggers()) {
+        effect.apply(attacker, target);
+      }
     }
   }
 
@@ -118,7 +120,7 @@ public abstract class AttackModel {
    *
    * @return A list of secondary effects
    */
-  public List<SecondaryEffectModel> getSecondaryEffects() {
+  public List<ISecondaryEffect> getSecondaryEffects() {
     return this.secondaryEffects;
   }
 

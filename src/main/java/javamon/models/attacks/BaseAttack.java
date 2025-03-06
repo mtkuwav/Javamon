@@ -3,8 +3,8 @@ package javamon.models.attacks;
 import java.util.ArrayList;
 
 import javamon.models.AttackModel;
+import javamon.models.ISecondaryEffect;
 import javamon.models.PokemonModel;
-import javamon.models.SecondaryEffectModel;
 import javamon.models.TypeModel;
 
 /**
@@ -25,7 +25,7 @@ public abstract class BaseAttack extends AttackModel {
    * @param secondaryEffects List of secondary effects that may be applied on hit
    */
   public BaseAttack(String name, TypeModel type, int power, 
-                    ArrayList<SecondaryEffectModel> secondaryEffects) {
+                    ArrayList<ISecondaryEffect> secondaryEffects) {
     super(name, type, power, secondaryEffects);
   }
 

@@ -12,7 +12,7 @@ package javamon.models;
  * These effects may have a chance-based trigger and apply different
  * consequences to the target Pokemon when activated.
  */
-public interface SecondaryEffectModel {
+public interface ISecondaryEffect {
 
   /**
    * Applies the secondary effect to the targeted Pokemon

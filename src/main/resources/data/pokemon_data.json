@@ -22,15 +22,6 @@
                 "description": "1st turn: Prepare\n2nd turn: Attack"
             },
             {
-                "name": "swords-dance",
-                "type": "normal",
-                "power": 0,
-                "isSpecial": false,
-                "category": "status",
-                "secondaryEffects": [],
-                "description": "A dance that in\u00ad\ncreases ATTACK."
-            },
-            {
                 "name": "cut",
                 "type": "normal",
                 "power": 50,
@@ -545,15 +536,6 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "A double kicking\nattack."
-            },
-            {
-                "name": "sand-attack",
-                "type": "ground",
-                "power": 0,
-                "isSpecial": false,
-                "category": "status",
-                "secondaryEffects": [],
-                "description": "Reduces accuracy\nby throwing sand."
             },
             {
                 "name": "headbutt",
