@@ -1,7 +1,6 @@
-package javamon.models.statuses;
+package javamon.core.statuses;
 
-import javamon.models.PokemonModel;
-import javamon.models.Status;
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Represents the Freeze status condition.
@@ -29,12 +28,12 @@ public class FreezeStatus extends Status {
   }
   
   @Override
-  public void applyStartEffect(PokemonModel pokemon) {
+  public void applyStartEffect(Pokemon pokemon) {
     // No immediate effect when frozen is applied
   }
   
   @Override
-  public void applyEndEffect(PokemonModel pokemon) {
+  public void applyEndEffect(Pokemon pokemon) {
     // No end-of-turn damage or other effects
   }
   

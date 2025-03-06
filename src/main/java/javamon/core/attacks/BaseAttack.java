@@ -1,16 +1,15 @@
-package javamon.models.attacks;
+package javamon.core.attacks;
 
 import java.util.ArrayList;
 
-import javamon.models.AttackModel;
-import javamon.models.ISecondaryEffect;
-import javamon.models.PokemonModel;
-import javamon.models.TypeModel;
+import javamon.core.ISecondaryEffect;
+import javamon.core.Type;
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Base abstract class for attacks, handling common functionality between physical and special attacks.
  */
-public abstract class BaseAttack extends AttackModel {
+public abstract class BaseAttack extends Attack {
 
   // ┌───────────────────────────────┐
   // | -------- CONSTRUCTOR -------- |
@@ -24,7 +23,7 @@ public abstract class BaseAttack extends AttackModel {
    * @param power The base power of the attack
    * @param secondaryEffects List of secondary effects that may be applied on hit
    */
-  public BaseAttack(String name, TypeModel type, int power, 
+  public BaseAttack(String name, Type type, int power, 
                     ArrayList<ISecondaryEffect> secondaryEffects) {
     super(name, type, power, secondaryEffects);
   }
@@ -46,7 +45,7 @@ public abstract class BaseAttack extends AttackModel {
    * @param target The Pokémon receiving the attack
    */
   @Override
-  public final void execute(PokemonModel attacker, PokemonModel target) {
+  public final void execute(Pokemon attacker, Pokemon target) {
     double offensiveStat = getOffensiveStat(attacker);
     double defensiveStat = getDefensiveStat(target);
     
@@ -77,7 +76,7 @@ public abstract class BaseAttack extends AttackModel {
    * @param target The Pokémon receiving the attack
    * @return The combined type modifier to be applied to damage
    */
-  protected double calculateTypeModifier(PokemonModel attacker, PokemonModel target) {
+  protected double calculateTypeModifier(Pokemon attacker, Pokemon target) {
     double stab = attacker.isOfType(getType()) ? 1.5 : 1.0;
     double typeEffectiveness = getType().getMultiplierAgainst(target.getTypes());
     return stab * typeEffectiveness;
@@ -90,7 +89,7 @@ public abstract class BaseAttack extends AttackModel {
    * @param pokemon The Pokémon using the attack
    * @return The offensive stat value to use in damage calculation
    */
-  protected abstract double getOffensiveStat(PokemonModel pokemon);
+  protected abstract double getOffensiveStat(Pokemon pokemon);
   
   /**
    * Gets the appropriate defensive stat for this attack type
@@ -99,5 +98,5 @@ public abstract class BaseAttack extends AttackModel {
    * @param pokemon The Pokémon receiving the attack
    * @return The defensive stat value to use in damage calculation
    */
-  protected abstract double getDefensiveStat(PokemonModel pokemon);
+  protected abstract double getDefensiveStat(Pokemon pokemon);
 }

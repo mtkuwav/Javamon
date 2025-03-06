@@ -1,4 +1,7 @@
-package javamon.models;
+package javamon.core.statuses;
+
+import javamon.core.ISecondaryEffect;
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Represents a status condition that can be applied to a Pokémon as a secondary effect.
@@ -20,7 +23,7 @@ public class StatusEffect implements ISecondaryEffect {
   }
   
   @Override
-  public void apply(PokemonModel source, PokemonModel target) {
+  public void apply(Pokemon source, Pokemon target) {
     if (target.getStatus() == null) {
       Status newStatus = Status.createFromName(statusName);
       if (newStatus != null){

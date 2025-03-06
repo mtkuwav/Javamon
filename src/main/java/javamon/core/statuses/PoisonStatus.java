@@ -1,7 +1,6 @@
-package javamon.models.statuses;
+package javamon.core.statuses;
 
-import javamon.models.PokemonModel;
-import javamon.models.Status;
+import javamon.core.pokemon.Pokemon;
 
 public class PoisonStatus extends Status {
   public PoisonStatus() {
@@ -14,12 +13,12 @@ public class PoisonStatus extends Status {
   }
   
   @Override
-  public void applyStartEffect(PokemonModel pokemon) {
+  public void applyStartEffect(Pokemon pokemon) {
     // no immediate effect
   }
   
   @Override
-  public void applyEndEffect(PokemonModel pokemon) {
+  public void applyEndEffect(Pokemon pokemon) {
     int poisonDamage = pokemon.getMaxHp() / 8;
     pokemon.takeDamage(poisonDamage);
     System.out.println(pokemon.getName() + " is hurt by poison!");

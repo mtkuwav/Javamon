@@ -1,9 +1,6 @@
-package javamon.models;
+package javamon.core.statuses;
 
-import javamon.models.statuses.BurnStatus;
-import javamon.models.statuses.FreezeStatus;
-import javamon.models.statuses.ParalysisStatus;
-import javamon.models.statuses.PoisonStatus;
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Represents a status condition that can affect a Pokémon.
@@ -33,13 +30,13 @@ public abstract class Status {
    * Applies effects at the start when status is first applied.
    * @param pokemon The Pokémon affected by the status
    */
-  public abstract void applyStartEffect(PokemonModel pokemon);
+  public abstract void applyStartEffect(Pokemon pokemon);
   
   /**
    * Applies end-of-turn effects like damage or stat changes.
    * @param pokemon The Pokémon affected by the status
    */
-  public abstract void applyEndEffect(PokemonModel pokemon);
+  public abstract void applyEndEffect(Pokemon pokemon);
 
   /**
    * Determines if this status should be removed after the current turn.

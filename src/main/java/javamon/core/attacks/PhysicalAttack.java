@@ -1,10 +1,10 @@
-package javamon.models.attacks;
+package javamon.core.attacks;
 
 import java.util.ArrayList;
 
-import javamon.models.ISecondaryEffect;
-import javamon.models.PokemonModel;
-import javamon.models.TypeModel;
+import javamon.core.ISecondaryEffect;
+import javamon.core.Type;
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Represents a physical attack in the game.
@@ -21,7 +21,7 @@ public class PhysicalAttack extends BaseAttack {
    * @param power The base power of the attack
    * @param secondaryEffects List of secondary effects that may be applied on hit
    */
-  public PhysicalAttack(String name, TypeModel type, int power, 
+  public PhysicalAttack(String name, Type type, int power, 
             ArrayList<ISecondaryEffect> secondaryEffects) {
     super(name, type, power, secondaryEffects);
   }
@@ -32,12 +32,12 @@ public class PhysicalAttack extends BaseAttack {
   }
 
   @Override
-  protected double getOffensiveStat(PokemonModel pokemon) {
+  protected double getOffensiveStat(Pokemon pokemon) {
     return pokemon.getAttack();
   }
 
   @Override
-  protected double getDefensiveStat(PokemonModel pokemon) {
+  protected double getDefensiveStat(Pokemon pokemon) {
     return pokemon.getDefense();
   }
 }

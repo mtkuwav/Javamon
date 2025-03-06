@@ -1,5 +1,6 @@
-package javamon.models;
+package javamon.core;
 
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Represents a secondary effect that can be applied by attacks in the game.
@@ -20,7 +21,7 @@ public interface ISecondaryEffect {
    * @param source The Pokemon model that is performing the attack
    * @param target The Pokemon model that is receiving the attack and secondary effects
    */
-  void apply(PokemonModel source, PokemonModel target);
+  void apply(Pokemon source, Pokemon target);
 
   /**
    * Determines if the secondary effect triggers in the current situation.

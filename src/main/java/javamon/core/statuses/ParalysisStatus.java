@@ -1,7 +1,6 @@
-package javamon.models.statuses;
+package javamon.core.statuses;
 
-import javamon.models.PokemonModel;
-import javamon.models.Status;
+import javamon.core.pokemon.Pokemon;
 
 public class ParalysisStatus extends Status {
   public ParalysisStatus() {
@@ -14,12 +13,12 @@ public class ParalysisStatus extends Status {
   }
   
   @Override
-  public void applyStartEffect(PokemonModel pokemon) {
+  public void applyStartEffect(Pokemon pokemon) {
     pokemon.modifySpeed(-2); // Assuming this applies a 0.5x modifier
   }
   
   @Override
-  public void applyEndEffect(PokemonModel pokemon) {
+  public void applyEndEffect(Pokemon pokemon) {
     // No end-turn effect for paralysis
   }
 }
