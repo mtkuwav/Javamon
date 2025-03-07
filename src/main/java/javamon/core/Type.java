@@ -1,4 +1,4 @@
-package javamon.models;
+package javamon.core;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,16 +7,16 @@ import java.util.Map;
  * Represents a Pokémon type and manages type effectiveness calculations.
  * Each type has a name and effectiveness multipliers against other types.
  */
-public class TypeModel {
+public class Type {
   private final String name;
-  private final Map<TypeModel, Double> effectiveness;
+  private final Map<Type, Double> effectiveness;
 
   /**
    * Creates a new type with the specified name.
    *
    * @param name The name of the type
    */
-  public TypeModel(String name) {
+  public Type(String name) {
     this.name = name;
     this.effectiveness = new HashMap<>();
   }
@@ -32,7 +32,7 @@ public class TypeModel {
    * @param type The defending type
    * @param multiplier The effectiveness multiplier (e.g., 0.5 for not very effective, 2.0 for super effective)
    */
-  public void addEffectiveness(TypeModel type, double multiplier) {
+  public void addEffectiveness(Type type, double multiplier) {
     effectiveness.put(type, multiplier);
   }
 
@@ -42,7 +42,7 @@ public class TypeModel {
    * @param type The defending type
    * @return The effectiveness multiplier (defaults to 1.0 if not specifically defined)
    */
-  public double getMultiplierAgainst(TypeModel type) {
+  public double getMultiplierAgainst(Type type) {
       return effectiveness.getOrDefault(type, 1.0);
   }
 
@@ -53,9 +53,9 @@ public class TypeModel {
    * @param types An iterable collection of defending types
    * @return The combined effectiveness multiplier
    */
-  public double getMultiplierAgainst(Iterable<TypeModel> types) {
+  public double getMultiplierAgainst(Iterable<Type> types) {
     double multiplier = 1.0;
-    for (TypeModel type : types) {
+    for (Type type : types) {
       multiplier *= getMultiplierAgainst(type);
     }
     return multiplier;
@@ -101,7 +101,7 @@ public class TypeModel {
       return true;
     if (obj == null || getClass() != obj.getClass())
       return false;
-    return name.equals(((TypeModel) obj).name);
+    return name.equals(((Type) obj).name);
   }
 
   /**

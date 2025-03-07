@@ -12,7 +12,7 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;
 
-import javamon.models.TypeModel;
+import javamon.core.Type;
 
 /**
  * Utility class for loading Pokemon type data from JSON files
@@ -26,8 +26,8 @@ public class TypeLoader {
    *
    * @return A map of type names to TypeModel instances
    */
-  public static Map<String, TypeModel> loadTypes() {
-    Map<String, TypeModel> typeModels = new HashMap<>();
+  public static Map<String, Type> loadTypes() {
+    Map<String, Type> typeModels = new HashMap<>();
     
     try {
       InputStream is = TypeLoader.class.getResourceAsStream("/data/types_data.json");
@@ -44,20 +44,20 @@ public class TypeLoader {
       for (JsonValue typeValue : typesArray) {
         JsonObject typeObj = typeValue.asJsonObject();
         String typeName = typeObj.getString("name");
-        typeModels.put(typeName, new TypeModel(typeName));
+        typeModels.put(typeName, new Type(typeName));
       }
 
       for (JsonValue typeValue : typesArray) {
         JsonObject typeObj = typeValue.asJsonObject();
         String typeName = typeObj.getString("name");
-        TypeModel typeModel = typeModels.get(typeName);
+        Type typeModel = typeModels.get(typeName);
 
         if (typeObj.containsKey("effectiveness")) {
           JsonObject effectivenessObj = typeObj.getJsonObject("effectiveness");
 
           for (String targetTypeName : effectivenessObj.keySet()) {
             double multiplier = effectivenessObj.getJsonNumber(targetTypeName).doubleValue();
-            TypeModel targetType = typeModels.get(targetTypeName);
+            Type targetType = typeModels.get(targetTypeName);
             
             if (targetType != null) {
               typeModel.addEffectiveness(targetType, multiplier);
@@ -82,7 +82,7 @@ public class TypeLoader {
    * @param name The name of the type to find
    * @return The TypeModel with the specified name, or null if not found
    */
-  public static TypeModel getTypeByName(Map<String, TypeModel> types, String name) {
+  public static Type getTypeByName(Map<String, Type> types, String name) {
     return types.get(name);
   }
 }

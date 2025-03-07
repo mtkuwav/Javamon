@@ -1,14 +1,17 @@
-package javamon.models;
+package javamon.core.pokemon;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javamon.core.Type;
+import javamon.core.attacks.Attack;
+import javamon.core.statuses.Status;
 
 // SOME LINES ARE COMMENTED FOR TESTING AND AVOIDING COMPILAITON ERRORS
 
-public class PokemonModel {
+public class Pokemon {
   // integer to refresh the hp value in javafx
   private final IntegerProperty hp = new SimpleIntegerProperty();
   // pokemfinal on properties
@@ -20,10 +23,13 @@ public class PokemonModel {
   private final int specialDefense;
   private final int speed;
   // list of types for selection option
-  private final List<TypeModel> types;
-  // private final List<AttackModel> attacks;
+  private final List<Type> types;
+  private final List<Attack> attacks;
+
+
   // private final HeldObject heldObject;
-  // private final Status status;
+  
+  private Status status;
   // pokemon image background and font for javafx
   private String frontImage;
   private String backImage;
@@ -36,8 +42,8 @@ public class PokemonModel {
   private double speedFactor = 1.0;
 
   // constructor with pokemon properties
-  public PokemonModel(String name, int maxHP, int attack, int defense, int specialAttack, int specialDefense, int speed,
-      List<TypeModel> types) {
+  public Pokemon(String name, int maxHP, int attack, int defense, int specialAttack, int specialDefense, int speed,
+      List<Type> types) {
     this.name = name;
     this.maxHP = maxHP;
     this.hp.set(maxHP);
@@ -47,7 +53,7 @@ public class PokemonModel {
     this.specialDefense = specialDefense;
     this.speed = speed;
     this.types = new ArrayList<>(types);
-    // this.attacks = new ArrayList<>();
+    this.attacks = new ArrayList<>();
   }
 
   // Getters and setters
@@ -87,13 +93,13 @@ public class PokemonModel {
     return (int) (speed * speedFactor);
   }
 
-  public List<TypeModel> getTypes() {
+  public List<Type> getTypes() {
     return new ArrayList<>(types);
   }
 
-  // public List<Attack> getAttacks() {
-  //   return new ArrayList<>(attacks);
-  // }
+  public List<Attack> getAttacks() {
+    return new ArrayList<>(attacks);
+  }
 
   // public HeldObject getHeldObject() {
   //   return heldObject;
@@ -103,16 +109,16 @@ public class PokemonModel {
   //   this.heldObject = heldObject;
   // }
 
-  // public Status getStatus() {
-  //   return status;
-  // }
+  public Status getStatus() {
+    return status;
+  }
 
-  // public void setStatus(Status status) {
-  //   this.status = status;
-  //   if (status != null) {
-  //     status.applyStartEffect(this);
-  //   }
-  // }
+  public void setStatus(Status status) {
+    this.status = status;
+    if (status != null) {
+      status.applyStartEffect(this);
+    }
+  }
 
   public String getFrontImage() {
     return frontImage;
@@ -131,18 +137,18 @@ public class PokemonModel {
   }
 
   // method for attacking
-  // public void addAttack(Attack attack) {
-  //   if (attacks.size() < 4) {
-  //     attacks.add(attack);
-  //   }
-  // }
+  public void addAttack(Attack attack) {
+    if (attacks.size() < 4) {
+      attacks.add(attack);
+    }
+  }
 
-  // public void removeAttack(Attack attack) {
-  //   attacks.remove(attack);
-  // }
+  public void removeAttack(Attack attack) {
+    attacks.remove(attack);
+  }
 
   // method to check if pokemon is of type
-  public boolean isOfType(TypeModel type) {
+  public boolean isOfType(Type type) {
     return types.contains(type);
   }
 
@@ -162,12 +168,12 @@ public class PokemonModel {
   }
 
   // method for status
-  // public boolean canAttack() {
-  //   if (status != null) {
-  //     return status.canAttack();
-  //   }
-  //   return true;
-  // }
+  public boolean canAttack() {
+    if (status != null) {
+      return status.canAttack();
+    }
+    return true;
+  }
 
   // methods for stat modifications
   public void modifyAttack(int levels) {
@@ -244,15 +250,15 @@ public class PokemonModel {
   }
 
   // method for end of turn effects
-  // public void applyEndTurnEffects() {
-  //   if (status != null) {
-  //     status.applyEndEffect(this);
-  //   }
+  public void applyEndTurnEffects() {
+    if (status != null) {
+      status.applyEndEffect(this);
+    }
 
-  //   if (heldObject != null) {
-  //     heldObject.endTurn(this);
-  //   }
-  // }
+    // if (heldObject != null) {
+    //   heldObject.endTurn(this);
+    // }
+  }
 
   // method for toString
   @Override

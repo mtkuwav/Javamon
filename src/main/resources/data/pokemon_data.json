@@ -22,15 +22,6 @@
                 "description": "1st turn: Prepare\n2nd turn: Attack"
             },
             {
-                "name": "swords-dance",
-                "type": "normal",
-                "power": 0,
-                "isSpecial": false,
-                "category": "status",
-                "secondaryEffects": [],
-                "description": "A dance that in\u00ad\ncreases ATTACK."
-            },
-            {
                 "name": "cut",
                 "type": "normal",
                 "power": 50,
@@ -40,19 +31,19 @@
                 "description": "Cuts using claws,\nscythes, etc."
             },
             {
-                "name": "bind",
-                "type": "normal",
-                "power": 15,
-                "isSpecial": false,
-                "category": "physical",
+                "name": "giga-drain",
+                "type": "grass",
+                "power": 75,
+                "isSpecial": true,
+                "category": "special",
                 "secondaryEffects": [
                     {
-                        "type": "StatusEffect",
-                        "status": "trap",
+                        "type": "DrainEffect",
+                        "fraction": 2,
                         "chance": 100
                     }
                 ],
-                "description": "Binds the target\nfor 2-5 turns."
+                "description": "Drains half the\ndamage inflicted."
             }
         ],
         "heldItem": null,
@@ -507,6 +498,22 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "An attack that may\nmake foe flinch."
+            },
+            {
+                "name": "confuse-ray",
+                "type": "ghost",
+                "power": 0,
+                "isSpecial": false,
+                "category": "status",
+                "secondaryEffects": [
+                    {
+                        "type": "ConfusionEffect",
+                        "chance": 100,
+                        "minTurns": 2,
+                        "maxTurns": 5
+                    }
+                ],
+                "description": "A sinister ray that\nconfuses the foe."
             }
         ],
         "heldItem": null,
@@ -547,15 +554,6 @@
                 "description": "A double kicking\nattack."
             },
             {
-                "name": "sand-attack",
-                "type": "ground",
-                "power": 0,
-                "isSpecial": false,
-                "category": "status",
-                "secondaryEffects": [],
-                "description": "Reduces accuracy\nby throwing sand."
-            },
-            {
                 "name": "headbutt",
                 "type": "normal",
                 "power": 70,
@@ -563,6 +561,21 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "An attack that may\nmake foe flinch."
+            },
+            {
+                "name": "double-edge",
+                "type": "normal",
+                "power": 120,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "RecoilEffect",
+                        "fraction": 3,
+                        "chance": 100
+                    }
+                ],
+                "description": "A tackle that also\nhurts the user."
             }
         ],
         "heldItem": null,
@@ -631,6 +644,22 @@
                     }
                 ],
                 "description": "An icy punch. May\ncause freezing."
+            },
+            {
+                "name": "psychic",
+                "type": "psychic",
+                "power": 90,
+                "isSpecial": true,
+                "category": "special",
+                "secondaryEffects": [
+                    {
+                        "type": "StatReduceEffect",
+                        "stat": "special_defense",
+                        "stages": 1,
+                        "chance": 30
+                    }
+                ],
+                "description": "May lower the foe's\nSp. Def stat."
             }
         ],
         "heldItem": null,

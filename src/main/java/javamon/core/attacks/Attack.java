@@ -1,8 +1,11 @@
-package javamon.models;
+package javamon.core.attacks;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javamon.core.ISecondaryEffect;
+import javamon.core.Type;
+import javamon.core.pokemon.Pokemon;
 
 /**
  * Abstract class representing a Pokemon attack model.
@@ -16,15 +19,15 @@ import java.util.List;
  * Secondary effects (such as status conditions or stat changes) can be applied
  * when an attack is used.
  * 
- * @see PokemonModel
- * @see SecondaryEffectModel
- * @see TypeModel
+ * @see Pokemon
+ * @see ISecondaryEffect
+ * @see Type
  */
-public abstract class AttackModel {
+public abstract class Attack {
   private final String name;
-  private final TypeModel type;
+  private final Type type;
   private final int power;
-  private final ArrayList<SecondaryEffectModel> secondaryEffects;
+  private final ArrayList<ISecondaryEffect> secondaryEffects;
 
   /**
    * Creates a new AttackModel with the specified properties
@@ -35,10 +38,10 @@ public abstract class AttackModel {
    * @param secondaryEffects List of secondary effects that can be applied when 
    * the attack is used (can be empty)
    */
-  public AttackModel( String name,
-                      TypeModel type,
+  public Attack( String name,
+                      Type type,
                       int power,
-                      ArrayList<SecondaryEffectModel> secondaryEffects) {
+                      ArrayList<ISecondaryEffect> secondaryEffects) {
 
     this.name = name;
     this.type = type;
@@ -57,7 +60,7 @@ public abstract class AttackModel {
    * @param attacker The attacker Pokemon
    * @param target The Targetted Pokemon
    */
-  public abstract void execute(PokemonModel attacker, PokemonModel target);
+  public abstract void execute(Pokemon attacker, Pokemon target);
 
   /**
    * Determines if an attack is a special attack or not
@@ -75,9 +78,11 @@ public abstract class AttackModel {
    * @param attacker The Pokemon model that is performing the attack
    * @param target The Pokemon model that is receiving the attack and secondary effects
    */
-  protected void applySecondaryEffects(PokemonModel attacker, PokemonModel target) {
-    for (SecondaryEffectModel effect : secondaryEffects) {
-      effect.apply(attacker, target);
+  protected void applySecondaryEffects(Pokemon attacker, Pokemon target) {
+    for (ISecondaryEffect effect : secondaryEffects) {
+      if (effect.triggers()) {
+        effect.apply(attacker, target);
+      }
     }
   }
 
@@ -100,7 +105,7 @@ public abstract class AttackModel {
    *
    * @return The attack type
    */
-  public TypeModel getType() {
+  public Type getType() {
     return this.type;
   }
 
@@ -118,7 +123,7 @@ public abstract class AttackModel {
    *
    * @return A list of secondary effects
    */
-  public List<SecondaryEffectModel> getSecondaryEffects() {
+  public List<ISecondaryEffect> getSecondaryEffects() {
     return this.secondaryEffects;
   }
 
