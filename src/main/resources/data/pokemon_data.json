@@ -29,6 +29,21 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "Cuts using claws,\nscythes, etc."
+            },
+            {
+                "name": "giga-drain",
+                "type": "grass",
+                "power": 75,
+                "isSpecial": true,
+                "category": "special",
+                "secondaryEffects": [
+                    {
+                        "type": "DrainEffect",
+                        "fraction": 2,
+                        "chance": 100
+                    }
+                ],
+                "description": "Drains half the\ndamage inflicted."
             }
         ],
         "heldItem": null,
@@ -483,6 +498,22 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "An attack that may\nmake foe flinch."
+            },
+            {
+                "name": "confuse-ray",
+                "type": "ghost",
+                "power": 0,
+                "isSpecial": false,
+                "category": "status",
+                "secondaryEffects": [
+                    {
+                        "type": "ConfusionEffect",
+                        "chance": 100,
+                        "minTurns": 2,
+                        "maxTurns": 5
+                    }
+                ],
+                "description": "A sinister ray that\nconfuses the foe."
             }
         ],
         "heldItem": null,
@@ -530,6 +561,21 @@
                 "category": "physical",
                 "secondaryEffects": [],
                 "description": "An attack that may\nmake foe flinch."
+            },
+            {
+                "name": "double-edge",
+                "type": "normal",
+                "power": 120,
+                "isSpecial": false,
+                "category": "physical",
+                "secondaryEffects": [
+                    {
+                        "type": "RecoilEffect",
+                        "fraction": 3,
+                        "chance": 100
+                    }
+                ],
+                "description": "A tackle that also\nhurts the user."
             }
         ],
         "heldItem": null,
@@ -598,6 +644,22 @@
                     }
                 ],
                 "description": "An icy punch. May\ncause freezing."
+            },
+            {
+                "name": "psychic",
+                "type": "psychic",
+                "power": 90,
+                "isSpecial": true,
+                "category": "special",
+                "secondaryEffects": [
+                    {
+                        "type": "StatReduceEffect",
+                        "stat": "special_defense",
+                        "stages": 1,
+                        "chance": 30
+                    }
+                ],
+                "description": "May lower the foe's\nSp. Def stat."
             }
         ],
         "heldItem": null,
