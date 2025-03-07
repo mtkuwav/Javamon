@@ -20,6 +20,7 @@ import javamon.core.Type;
  */
 public class TypeLoader {
   private static final Logger LOGGER = Logger.getLogger(TypeLoader.class.getName());
+  private static final String TYPE_DATA_PATH = "/data/types_data.json";
   
   /**
    * Loads all type data from the JSON file and creates a map of type models.
@@ -30,49 +31,96 @@ public class TypeLoader {
     Map<String, Type> typeModels = new HashMap<>();
     
     try {
-      InputStream is = TypeLoader.class.getResourceAsStream("/data/types_data.json");
-      if (is == null) {
-        LOGGER.log(Level.SEVERE, "Could not find types_data.json file");
+      JsonArray typesArray = loadTypesJsonArray();
+      if (typesArray == null) {
         return typeModels;
       }
 
-      JsonArray typesArray;
-      try (JsonReader reader = Json.createReader(is)) {
-        typesArray = reader.readArray();
-      }
-
-      for (JsonValue typeValue : typesArray) {
-        JsonObject typeObj = typeValue.asJsonObject();
-        String typeName = typeObj.getString("name");
-        typeModels.put(typeName, new Type(typeName));
-      }
-
-      for (JsonValue typeValue : typesArray) {
-        JsonObject typeObj = typeValue.asJsonObject();
-        String typeName = typeObj.getString("name");
-        Type typeModel = typeModels.get(typeName);
-
-        if (typeObj.containsKey("effectiveness")) {
-          JsonObject effectivenessObj = typeObj.getJsonObject("effectiveness");
-
-          for (String targetTypeName : effectivenessObj.keySet()) {
-            double multiplier = effectivenessObj.getJsonNumber(targetTypeName).doubleValue();
-            Type targetType = typeModels.get(targetTypeName);
-            
-            if (targetType != null) {
-              typeModel.addEffectiveness(targetType, multiplier);
-            }
-          }
-        }
-      }
-
+      createTypeInstances(typesArray, typeModels);
+      setupTypeEffectiveness(typesArray, typeModels);
+      
       LOGGER.log(Level.INFO, "Successfully loaded {0} types", typeModels.size());
-
     } catch (Exception e) {
       LOGGER.log(Level.SEVERE, "Error loading type data", e);
     }
 
     return typeModels;
+  }
+
+  /**
+   * Loads the JSON array containing type data.
+   *
+   * @return A JsonArray containing type data or null if loading fails
+   */
+  private static JsonArray loadTypesJsonArray() {
+    InputStream is = TypeLoader.class.getResourceAsStream(TYPE_DATA_PATH);
+    if (is == null) {
+      LOGGER.log(Level.SEVERE, "Could not find types_data.json file");
+      return null;
+    }
+
+    try (JsonReader reader = Json.createReader(is)) {
+      return reader.readArray();
+    }
+  }
+
+  /**
+   * Creates Type instances from JSON data and adds them to the map.
+   *
+   * @param typesArray The JSON array containing type data
+   * @param typeModels The map to populate with Type instances
+   */
+  private static void createTypeInstances(
+      JsonArray typesArray, Map<String, Type> typeModels) {
+    for (JsonValue typeValue : typesArray) {
+      JsonObject typeObj = typeValue.asJsonObject();
+      String typeName = typeObj.getString("name");
+      typeModels.put(typeName, new Type(typeName));
+    }
+  }
+
+  /**
+   * Sets up effectiveness relationships between types.
+   *
+   * @param typesArray The JSON array containing type data
+   * @param typeModels The map containing Type instances
+   */
+  private static void setupTypeEffectiveness(
+      JsonArray typesArray, Map<String, Type> typeModels) {
+    for (JsonValue typeValue : typesArray) {
+      JsonObject typeObj = typeValue.asJsonObject();
+      String typeName = typeObj.getString("name");
+      Type typeModel = typeModels.get(typeName);
+
+      if (typeObj.containsKey("effectiveness")) {
+        addEffectivenessRelationships(
+            typeObj.getJsonObject("effectiveness"), 
+            typeModel, 
+            typeModels
+        );
+      }
+    }
+  }
+
+  /**
+   * Adds effectiveness relationships for a specific type.
+   *
+   * @param effectivenessObj The JSON object containing effectiveness data
+   * @param typeModel The Type to add relationships to
+   * @param typeModels The map containing all Type instances
+   */
+  private static void addEffectivenessRelationships(
+      JsonObject effectivenessObj, 
+      Type typeModel, 
+      Map<String, Type> typeModels) {
+    for (String targetTypeName : effectivenessObj.keySet()) {
+      double multiplier = effectivenessObj.getJsonNumber(targetTypeName).doubleValue();
+      Type targetType = typeModels.get(targetTypeName);
+      
+      if (targetType != null) {
+        typeModel.addEffectiveness(targetType, multiplier);
+      }
+    }
   }
 
   /**
