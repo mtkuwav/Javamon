@@ -5,10 +5,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javamon.tests.TypeTest;
 
 public class Main extends Application {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        // Run type tests first
+        System.out.println("Running type system tests...");
+        TypeTest.main(args);
+        System.out.println("\nStarting JavaMon application...");
+        
+        // Launch the JavaFX application
         launch(args);
     }
     
