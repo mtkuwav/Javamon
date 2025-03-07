@@ -88,9 +88,9 @@ public class Pokemon {
     this.attacks = new ArrayList<>();
   }
 
-  // ┌──────────────────────────────┐
+  // ┌──────────────────────────────────┐
   // | -------- GETTER METHODS -------- |
-  // └──────────────────────────────┘
+  // └──────────────────────────────────┘
 
   /**
    * Gets the name of this Pokemon.
@@ -236,9 +236,9 @@ public class Pokemon {
     return confusionCounter;
   }
 
-  // ┌──────────────────────────────┐
+  // ┌──────────────────────────────────┐
   // | -------- SETTER METHODS -------- |
-  // └──────────────────────────────┘
+  // └──────────────────────────────────┘
 
   /**
    * Sets a status condition on this Pokemon.
@@ -289,9 +289,9 @@ public class Pokemon {
     this.confusionCounter = confusionCounter;
   }
 
-  // ┌─────────────────────────────────┐
+  // ┌──────────────────────────────────┐
   // | -------- ATTACK METHODS -------- |
-  // └─────────────────────────────────┘
+  // └──────────────────────────────────┘
 
   /**
    * Adds an attack to this Pokemon's moveset.
@@ -324,9 +324,9 @@ public class Pokemon {
     return types.contains(type);
   }
 
-  // ┌─────────────────────────────────┐
+  // ┌──────────────────────────────────┐
   // | -------- BATTLE METHODS -------- |
-  // └─────────────────────────────────┘
+  // └──────────────────────────────────┘
 
   /**
    * Reduces this Pokemon's HP by the specified damage amount.
@@ -383,9 +383,9 @@ public class Pokemon {
     return true;
   }
 
-  // ┌──────────────────────────────────────────────┐
+  // ┌─────────────────────────────────────────────┐
   // | -------- STAT MODIFICATION METHODS -------- |
-  // └──────────────────────────────────────────────┘
+  // └─────────────────────────────────────────────┘
 
   /**
    * Modifies this Pokemon's attack stat by the specified number of levels.
@@ -492,9 +492,9 @@ public class Pokemon {
     return currentFactor;
   }
 
-  // ┌────────────────────────────────────────────────┐
+  // ┌──────────────────────────────────────────────┐
   // | -------- END-OF-TURN EFFECT METHODS -------- |
-  // └────────────────────────────────────────────────┘
+  // └──────────────────────────────────────────────┘
 
   /**
    * Applies all end-of-turn effects, including status conditions and confusion.
