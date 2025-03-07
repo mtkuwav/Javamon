@@ -46,6 +46,11 @@ public abstract class BaseAttack extends Attack {
    */
   @Override
   public final void execute(Pokemon attacker, Pokemon target) {
+    if (!attacker.canAttack()) {
+        System.out.println(attacker.getName() + " couldn't move!");
+        return;
+    }
+    
     double offensiveStat = getOffensiveStat(attacker);
     double defensiveStat = getDefensiveStat(target);
     
@@ -58,9 +63,15 @@ public abstract class BaseAttack extends Attack {
     
     int damage = (int) (baseDamage * typeModifier * randomFactor);
 
+    // Appliquer les dégâts
     target.takeDamage(damage);
 
-    applySecondaryEffects(attacker, target);
+    // Appliquer les effets secondaires avec les dégâts infligés
+    for (ISecondaryEffect effect : getSecondaryEffects()) {
+        if (effect.triggers()) {
+            effect.apply(attacker, target, damage);
+        }
+    }
   }
 
 

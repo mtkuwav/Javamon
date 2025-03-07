@@ -16,12 +16,20 @@ import javamon.core.pokemon.Pokemon;
 public interface ISecondaryEffect {
 
   /**
-   * Applies the secondary effect to the targeted Pokemon
-   *
-   * @param source The Pokemon model that is performing the attack
-   * @param target The Pokemon model that is receiving the attack and secondary effects
+   * Applies this effect without damage information
    */
   void apply(Pokemon source, Pokemon target);
+  
+  /**
+   * Applies this effect with damage information
+   * @param source The Pokémon using the attack
+   * @param target The Pokémon receiving the attack
+   * @param damageDealt The actual damage dealt by the attack
+   */
+  default void apply(Pokemon source, Pokemon target, int damageDealt) {
+      // Par défaut, on ignore les dégâts et on utilise l'implémentation simple
+      apply(source, target);
+  }
 
   /**
    * Determines if the secondary effect triggers in the current situation.

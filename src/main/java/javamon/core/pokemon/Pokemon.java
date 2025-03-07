@@ -41,6 +41,10 @@ public class Pokemon {
   private double specialDefenseFactor = 1.0;
   private double speedFactor = 1.0;
 
+  // Ajoutez ces propriétés à la classe Pokemon
+  private boolean confused = false;
+  private int confusionCounter = 0;
+
   // constructor with pokemon properties
   public Pokemon(String name, int maxHP, int attack, int defense, int specialAttack, int specialDefense, int speed,
       List<Type> types) {
@@ -169,9 +173,20 @@ public class Pokemon {
 
   // method for status
   public boolean canAttack() {
-    if (status != null) {
-      return status.canAttack();
+    if (status != null && !status.canAttack()) {
+        return false;
     }
+
+    if (confused) {
+        // 50% chance to hurt itself
+        if (Math.random() < 0.5) {
+            int confusionDamage = Math.max(1, attack / 2);
+            takeDamage(confusionDamage);
+            System.out.println(name + " hurt itself in confusion!");
+            return false;
+        }
+    }
+    
     return true;
   }
 
@@ -252,17 +267,42 @@ public class Pokemon {
   // method for end of turn effects
   public void applyEndTurnEffects() {
     if (status != null) {
-      status.applyEndEffect(this);
+        status.applyEndEffect(this);
+        
+        if (status.shouldRemoveAfterTurn()) {
+            status = null;
+            System.out.println(name + " recovered from its status condition!");
+        }
     }
-
-    // if (heldObject != null) {
-    //   heldObject.endTurn(this);
-    // }
+    
+    if (confused) {
+        confusionCounter--;
+        if (confusionCounter <= 0) {
+            confused = false;
+            System.out.println(name + " snapped out of confusion!");
+        }
+    }
   }
 
   // method for toString
   @Override
   public String toString() {
     return name;
+  }
+
+  public boolean isConfused() {
+    return confused;
+  }
+
+  public void setConfused(boolean confused) {
+    this.confused = confused;
+  }
+
+  public int getConfusionCounter() {
+    return confusionCounter;
+  }
+
+  public void setConfusionCounter(int confusionCounter) {
+    this.confusionCounter = confusionCounter;
   }
 }
