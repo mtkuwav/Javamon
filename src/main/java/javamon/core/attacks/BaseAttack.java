@@ -15,6 +15,8 @@ public abstract class BaseAttack extends Attack {
   // | -------- CONSTRUCTOR -------- |
   // └───────────────────────────────┘
 
+  private final String description;
+
   /**
    * Creates a new attack with the specified parameters.
    *
@@ -22,12 +24,18 @@ public abstract class BaseAttack extends Attack {
    * @param type The type of the attack
    * @param power The base power of the attack
    * @param secondaryEffects List of secondary effects that may be applied on hit
+   * @param description The description of the attack
    */
   public BaseAttack(String name, Type type, int power, 
-                    ArrayList<ISecondaryEffect> secondaryEffects) {
+                    ArrayList<ISecondaryEffect> secondaryEffects, String description) {
     super(name, type, power, secondaryEffects);
+    this.description = description;
   }
 
+  // Ajouter un getter pour description
+  public String getDescription() {
+    return description;
+  }
 
   // ┌─────────────────────────────────────┐
   // | -------- EXECUTION METHODS -------- |
