@@ -22,8 +22,8 @@ public class PhysicalAttack extends BaseAttack {
    * @param secondaryEffects List of secondary effects that may be applied on hit
    */
   public PhysicalAttack(String name, Type type, int power, 
-            ArrayList<ISecondaryEffect> secondaryEffects) {
-    super(name, type, power, secondaryEffects);
+            ArrayList<ISecondaryEffect> secondaryEffects, String description) {
+    super(name, type, power, secondaryEffects, description);
   }
 
   @Override
